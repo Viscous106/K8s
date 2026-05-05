@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: synergychat-crawler
+  name: synergychat-crawler-deployment
   labels: 
     app: synergychat-crawler
 
@@ -29,3 +29,8 @@ spec:
                 configMapKeyRef:
                   name: synergychat-crawler-configmap
                   key: CRAWLER_KEYWORDS
+            - name: API_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: synergychat-crawler-configmap
+                  key: API_URL
